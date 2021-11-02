@@ -4,7 +4,7 @@ project(kht)
 find_package(pybind11 REQUIRED)
 
 include_directories("../../include/kht/")
-include_directories($ENV{EIGEN_DIR}/include/eigen3)
+include_directories($ENV{CONDA_PREFIX}/include/eigen3)
 
 set(PYTHON_MODULE_EXTENSION ".so")
 
