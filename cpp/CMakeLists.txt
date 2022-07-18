@@ -45,11 +45,12 @@ project(KHT
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
+find_package (Eigen3 REQUIRED NO_MODULE)
 configure_file("./cmake/KHTConfig.cmake.in" "${CMAKE_CURRENT_BINARY_DIR}/KHTConfig.cmake" @ONLY NEWLINE_STYLE UNIX)
 configure_file("./cmake/KHTConfigVersion.cmake.in" "${CMAKE_CURRENT_BINARY_DIR}/KHTConfigVersion.cmake" @ONLY NEWLINE_STYLE UNIX)
 
 add_library(kht STATIC "./source/kht.cpp" "./source/eigen.cpp" "./source/linking.cpp" "./source/peak_detection.cpp" "./source/subdivision.cpp" "./source/voting.cpp")
+target_link_libraries (kht Eigen3::Eigen)
 set_target_properties(kht PROPERTIES POSITION_INDEPENDENT_CODE ON PUBLIC_HEADER "./include/kht/kht.hpp")
 
 include(GNUInstallDirs)
