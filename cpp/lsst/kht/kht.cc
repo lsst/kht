@@ -10,7 +10,7 @@
 
 namespace kht {
 namespace py = pybind11;
-using PyLine = py::class_<Line, std::shared_ptr<Line>>;
+using PyLine = py::classh<Line>;
 
 
 PYBIND11_MODULE(pykht, mod) {
